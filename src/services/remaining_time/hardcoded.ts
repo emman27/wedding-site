@@ -11,6 +11,7 @@ class Hardcoded {
   }
 
   public start() {
+    this.updateTimer(this.store)();
     setInterval(this.updateTimer(this.store), 1000);
   }
 

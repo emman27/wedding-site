@@ -1,8 +1,11 @@
+import { createStyles, withStyles } from "@material-ui/core/styles";
+import Typography from "@material-ui/core/Typography";
 import moment from "moment";
 import React from "react";
 
 export interface TimerProps {
   remainingSeconds: number;
+  classes: any;
 }
 
 function separate(remainingSeconds: number) {
@@ -43,16 +46,48 @@ function separate(remainingSeconds: number) {
   };
 }
 
-const Timer = ({ remainingSeconds }: TimerProps) => {
+const styles = () => createStyles({
+  unit: {
+    margin: 20,
+    flexDirection: "column",
+    textAlign: "center",
+  },
+  row: {
+    display: "flex",
+    justifyContent: "center",
+    // flexDirection: "row",
+  },
+});
+
+const Timer = ({ remainingSeconds, classes }: TimerProps) => {
   const details = separate(remainingSeconds);
   return (
     <div>
-      {details.months} months,
-      {details.days} days,
-      {details.hours} hours,
-      {details.minutes} minutes and {details.seconds} seconds
+      <div className={classes.row}>
+        <span className={classes.unit}>
+          <Typography variant="h2">{details.months}</Typography>
+          <Typography variant="h6">MONTHS</Typography>
+        </span>
+        <span className={classes.unit}>
+          <Typography variant="h2">{details.days}</Typography>
+          <Typography variant="h6">DAYS</Typography>
+        </span>
+        <span className={classes.unit}>
+
+          <Typography variant="h2">{details.hours}</Typography>
+          <Typography variant="h6">HOURS</Typography>
+        </span>
+        <span className={classes.unit}>
+          <Typography variant="h2">{details.minutes}</Typography>
+          <Typography variant="h6">MINS</Typography>
+        </span>
+        <span className={classes.unit}>
+          <Typography variant="h2">{details.seconds}</Typography>
+          <Typography variant="h6">SECS</Typography>
+        </span>
+      </div>
     </div>
   );
 };
 
-export default Timer;
+export default withStyles(styles)(Timer);
