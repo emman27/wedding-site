@@ -1,29 +1,56 @@
+import moment from "moment";
 import React from "react";
 
-export interface Countdown {
-  months: number;
-  days: number;
-  hours: number;
-  minutes: number;
-  seconds: number;
-}
-
-export interface RemainingTimeService {
-  getRemainingTime(): Countdown;
-}
-
 export interface TimerProps {
-  remainingTimeService: RemainingTimeService;
+  remainingSeconds: number;
 }
 
-const Timer = ({ remainingTimeService }: TimerProps) => {
-  const countdown = remainingTimeService.getRemainingTime();
+function separate(remainingSeconds: number) {
+  const totalDuration = moment.duration(remainingSeconds, "seconds");
+
+  let months = totalDuration.months();
+  let days = totalDuration.subtract(months, "months").days();
+  let hours = totalDuration.subtract(months, "months").subtract(days, "days").hours();
+  let minutes = totalDuration.subtract(months, "months").subtract(days, "days").subtract(hours, "hours").minutes();
+  let seconds = totalDuration.
+    subtract(months, "months").
+    subtract(days, "days").
+    subtract(hours, "hours").
+    subtract(minutes, "minutes").
+    seconds();
+  if (seconds < 0) {
+    seconds += 60;
+    minutes -= 1;
+  }
+  if (minutes < 0) {
+    minutes += 60;
+    hours -= 1;
+  }
+  if (hours < 0) {
+    hours += 24;
+    days -= 1;
+  }
+  if (days < 0) {
+    months -= 1;
+    days += moment().daysInMonth();
+  }
+  return {
+    months,
+    days,
+    hours,
+    minutes,
+    seconds,
+  };
+}
+
+const Timer = ({ remainingSeconds }: TimerProps) => {
+  const details = separate(remainingSeconds);
   return (
     <div>
-      {countdown.months} months,
-      {countdown.days} days,
-      {countdown.hours} hours,
-      {countdown.minutes} minutes and {countdown.seconds} seconds
+      {details.months} months,
+      {details.days} days,
+      {details.hours} hours,
+      {details.minutes} minutes and {details.seconds} seconds
     </div>
   );
 };

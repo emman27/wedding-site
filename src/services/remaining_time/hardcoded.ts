@@ -1,22 +1,22 @@
 import moment from "moment";
-import { Countdown, RemainingTimeService } from "../../components/Timer";
+import { Store } from "redux";
+import { updateCountdown } from "../../store/countdown/actions";
 
-const ACTUAL_DATE = moment("2019-07-20T11:00+08:00");
+const ACTUAL_DATE = moment("2019-07-09T11:00+08:00");
 
-class Hardcoded implements RemainingTimeService {
-  public getRemainingTime(): Countdown {
-    const now = moment();
-    const months = ACTUAL_DATE.diff(now, "months");
-    const days = ACTUAL_DATE.diff(now.add(months, "month"), "day");
-    const hours = ACTUAL_DATE.diff(now.add(days, "day"), "hour");
-    const minutes = ACTUAL_DATE.diff(now.add(hours, "hour"), "minutes");
-    const seconds = ACTUAL_DATE.diff(now.add(minutes, "minute"), "seconds");
-    return {
-      months,
-      days,
-      hours,
-      minutes,
-      seconds,
+class Hardcoded {
+  public store: Store;
+  constructor(store: Store) {
+    this.store = store;
+  }
+
+  public start() {
+    setInterval(this.updateTimer(this.store), 1000);
+  }
+
+  public updateTimer(store: Store) {
+    return () => {
+      store.dispatch(updateCountdown(ACTUAL_DATE.diff(moment(), "seconds")));
     };
   }
 }

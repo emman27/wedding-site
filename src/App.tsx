@@ -1,14 +1,22 @@
-import React, { Component } from 'react';
-import './App.css';
-import Timer from './components/Timer';
-import Hardcoded from './services/remaining_time/hardcoded';
+import React, { Component } from "react";
+import { Provider } from "react-redux";
+import "./App.css";
+import Timer from "./connected/Timer";
+import Hardcoded from "./services/remaining_time/hardcoded";
+import store from "./store";
 
 class App extends Component {
-  render() {
+  public componentDidMount() {
+    new Hardcoded(store).start();
+  }
+
+  public render() {
     return (
-      <div className="App">
-        <Timer remainingTimeService={new Hardcoded()} />
-      </div >
+      <Provider store={store}>
+        <div className="App">
+          <Timer />
+        </div >
+      </Provider>
     );
   }
 }
