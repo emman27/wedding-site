@@ -19,7 +19,13 @@ class App extends Component {
         <MuiThemeProvider theme={theme}>
           <AppBar position="static">
             <Toolbar>
-              <Typography variant="h6" color="inherit">TingScoreGoh</Typography>
+              <Typography
+                variant="h4"
+                color="inherit"
+                style={{ fontFamily: "Great Vibes", flexGrow: 1 }}
+              >
+                TingScoreGoh
+              </Typography>
             </Toolbar>
           </AppBar>
           <div className="App">
