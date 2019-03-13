@@ -1,4 +1,5 @@
 import { AppBar, Toolbar, Typography } from "@material-ui/core";
+import Button from "@material-ui/core/Button";
 import { MuiThemeProvider } from "@material-ui/core/styles";
 import React, { Component } from "react";
 import { Provider } from "react-redux";
@@ -30,6 +31,9 @@ class App extends Component {
           </AppBar>
           <div className="App">
             <Timer />
+            <Button color="primary" variant="raised" size="large" href="https://rsvp.tingscoregoh.com">
+              <Typography variant="h5">RSVP <i className="fas fa-futbol" /></Typography>
+            </Button>
           </div >
         </MuiThemeProvider>
       </Provider>
