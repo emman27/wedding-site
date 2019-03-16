@@ -21,9 +21,9 @@ class App extends Component {
           <AppBar position="static">
             <Toolbar>
               <Typography
-                variant="h4"
+                variant="h3"
                 color="inherit"
-                style={{ fontFamily: "Great Vibes", flexGrow: 1 }}
+                style={{ flexGrow: 1, fontFamily: "Sharon Baker DEMO" }}
               >
                 TingScoreGoh
               </Typography>
@@ -31,7 +31,7 @@ class App extends Component {
           </AppBar>
           <div className="App">
             <Timer />
-            <Button color="primary" variant="raised" size="large" href="https://rsvp.tingscoregoh.com">
+            <Button color="primary" variant="contained" size="large" href="https://rsvp.tingscoregoh.com">
               <Typography variant="h5">RSVP <i className="fas fa-futbol" /></Typography>
             </Button>
           </div >

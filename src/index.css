@@ -5,3 +5,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
 }
+
+@font-face {
+  font-family: 'Sharon Baker DEMO';
+  src: url('/sharonbaker-webfont.woff') format('woff');
+}

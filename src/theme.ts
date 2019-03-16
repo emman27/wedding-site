@@ -10,6 +10,9 @@ const theme = createMuiTheme({
       main: lightBlue[300],
     },
   },
+  typography: {
+    useNextVariants: true,
+  },
 });
 
 export default theme;

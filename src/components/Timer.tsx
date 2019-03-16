@@ -56,6 +56,7 @@ const styles = () => createStyles({
     display: "flex",
     justifyContent: "center",
     flexWrap: "wrap",
+    color: "rgba(255,255,255,0.8)",
     // flexDirection: "row",
   },
 });
@@ -66,25 +67,25 @@ const Timer = ({ remainingSeconds, classes }: TimerProps) => {
     <div>
       <div className={classes.row}>
         <span className={classes.unit}>
-          <Typography variant="h1">{details.months}</Typography>
-          <Typography variant="h4">MONTHS</Typography>
+          <Typography variant="h1" color="inherit">{details.months}</Typography>
+          <Typography variant="h4" color="inherit">MONTHS</Typography>
         </span>
         <span className={classes.unit}>
-          <Typography variant="h1">{details.days}</Typography>
-          <Typography variant="h4">DAYS</Typography>
+          <Typography variant="h1" color="inherit">{details.days}</Typography>
+          <Typography variant="h4" color="inherit">DAYS</Typography>
         </span>
         <span className={classes.unit}>
 
-          <Typography variant="h1">{details.hours}</Typography>
-          <Typography variant="h4">HOURS</Typography>
+          <Typography variant="h1" color="inherit">{details.hours}</Typography>
+          <Typography variant="h4" color="inherit">HOURS</Typography>
         </span>
         <span className={classes.unit}>
-          <Typography variant="h1">{details.minutes}</Typography>
-          <Typography variant="h4">MINS</Typography>
+          <Typography variant="h1" color="inherit">{details.minutes}</Typography>
+          <Typography variant="h4" color="inherit">MINS</Typography>
         </span>
         <span className={classes.unit}>
-          <Typography variant="h1">{details.seconds}</Typography>
-          <Typography variant="h4">SECS</Typography>
+          <Typography variant="h1" color="inherit">{details.seconds}</Typography>
+          <Typography variant="h4" color="inherit">SECS</Typography>
         </span>
       </div>
     </div>
