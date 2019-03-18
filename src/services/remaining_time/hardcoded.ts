@@ -2,7 +2,7 @@ import moment from "moment";
 import { Store } from "redux";
 import { updateCountdown } from "../../store/countdown/actions";
 
-const ACTUAL_DATE = moment("2019-07-09T11:00+08:00");
+const ACTUAL_DATE = moment("2019-07-20T11:00+08:00");
 
 class Hardcoded {
   public store: Store;
