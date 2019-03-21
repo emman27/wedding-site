@@ -7,6 +7,7 @@ function mapStateToProps(state: any) {
     name: state.form.name,
     contact: state.form.contact,
     attendees: state.form.attendees,
+    rsvpService: state.form.rsvpService,
   };
 }
 

@@ -1,10 +1,16 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App";
+import "./index.css";
+import { RSVPServiceFirestore } from "./services/rsvp";
+import * as serviceWorker from "./serviceWorker";
+import store from "./store";
+import { setRSVPService } from "./store/form/actions";
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const rsvpService = new RSVPServiceFirestore(store);
+store.dispatch(setRSVPService(rsvpService));
+
+ReactDOM.render(<App />, document.getElementById("root"));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

@@ -3,6 +3,7 @@ import {
   MenuItem, Select, TextField, Typography, withStyles,
 } from "@material-ui/core";
 import React from "react";
+import { RSVPService } from "../services/rsvp";
 
 const styles = (theme: any) => createStyles({
   card: {
@@ -31,13 +32,16 @@ interface FormProps {
   onNameChange: (val: string) => void;
   onContactChange: (val: string) => void;
   onAttendeesChange: (val: number) => void;
+  rsvpService: RSVPService;
 }
 
 interface FormState {
   labelWidth: number;
 }
 
-const Form = ({ classes, name, attendees, contact, onNameChange, onAttendeesChange, onContactChange }: FormProps) => {
+const Form = ({ classes, name, attendees, contact,
+  onNameChange, onAttendeesChange, onContactChange,
+  rsvpService }: FormProps) => {
   const formComplete = name !== "" && attendees !== "" && contact !== "";
   return (
     <Card className={classes.card}>
@@ -79,7 +83,13 @@ const Form = ({ classes, name, attendees, contact, onNameChange, onAttendeesChan
               </Select>
             </FormControl>
           </div>
-          <Button color="primary" variant="contained" size="large" disabled={!formComplete}>
+          <Button
+            color="primary"
+            variant="contained"
+            size="large"
+            disabled={!formComplete}
+            onClick={() => { rsvpService.submitRSVP({ name, contact, numberOfAttendees: attendees as number }); }}
+          >
             <Typography variant="h5">Done! <i className="fas fa-futbol" /></Typography>
           </Button>
         </form>
