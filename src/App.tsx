@@ -1,10 +1,11 @@
 import { AppBar, Toolbar, Typography } from "@material-ui/core";
-import Button from "@material-ui/core/Button";
 import { MuiThemeProvider } from "@material-ui/core/styles";
 import React, { Component } from "react";
 import { Provider } from "react-redux";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import "./App.css";
-import Timer from "./connected/Timer";
+import Landing from "./pages/Landing";
+import RsvpForm from "./pages/RsvpForm";
 import Hardcoded from "./services/remaining_time/hardcoded";
 import store from "./store";
 import theme from "./theme";
@@ -30,10 +31,12 @@ class App extends Component {
             </Toolbar>
           </AppBar>
           <div className="App">
-            <Timer />
-            <Button color="primary" variant="contained" size="large" href="https://rsvp.tingscoregoh.com">
-              <Typography variant="h5">RSVP <i className="fas fa-futbol" /></Typography>
-            </Button>
+            <BrowserRouter>
+              <Switch>
+                <Route component={RsvpForm} path="/rsvp" />
+                <Route component={Landing} path="/" />
+              </Switch>
+            </BrowserRouter>
           </div >
         </MuiThemeProvider>
       </Provider>
