@@ -1,4 +1,4 @@
-import firebase from "firebase";
+import * as firebase from "firebase/app";
 import "firebase/firestore";
 import { Store } from "redux";
 import { FORM_STATE } from "../components/Form";
