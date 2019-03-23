@@ -10,8 +10,8 @@ const styles = (theme: any) => createStyles({
     maxWidth: 450,
     borderRadius: 20,
     backgroundColor: "rgba(255,255,255,0.9)",
-    marginLeft: 4 * theme.spacing.unit,
-    marginRight: 4 * theme.spacing.unit,
+    marginLeft: theme.spacing.unit,
+    marginRight: theme.spacing.unit,
   },
   form: {
     flexDirection: "row",
@@ -20,7 +20,7 @@ const styles = (theme: any) => createStyles({
   formItem: {
     flex: 1,
     margin: theme.spacing.unit,
-    minWidth: 240,
+    minWidth: 260,
   },
 });
 
