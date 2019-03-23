@@ -42,10 +42,6 @@ interface FormProps {
   state: FORM_STATE;
 }
 
-interface FormState {
-  labelWidth: number;
-}
-
 const Form = ({ classes, name, attendees, contact,
   onNameChange, onAttendeesChange, onContactChange,
   rsvpService, state }: FormProps) => {
