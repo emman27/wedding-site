@@ -1,6 +1,8 @@
 import firebase from "firebase";
 import "firebase/firestore";
 import { Store } from "redux";
+import { FORM_STATE } from "../components/Form";
+import { updateState } from "../store/form/actions";
 
 export interface RSVP {
   name: string;
@@ -32,12 +34,14 @@ export class RSVPServiceFirestore {
 
   }
   public submitRSVP({ name, contact, numberOfAttendees }: RSVP) {
+    this.store.dispatch(updateState(FORM_STATE.SUBMITTING));
     this.db.collection("rsvps").add({
       name,
       contact,
       numberOfAttendees,
+    }).then(() => {
+      this.store.dispatch(updateState(FORM_STATE.SUBMITTED));
     });
-    console.log(this.store);
   }
 
 }

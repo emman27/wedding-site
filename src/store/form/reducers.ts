@@ -1,14 +1,9 @@
+import { FORM_STATE } from "../../components/Form";
 import {
   Action, SET_RSVP_SERVICE, SetRSVPServiceAction,
   UPDATE_ATTENDEES, UPDATE_CONTACT, UPDATE_NAME,
-  UpdateIntAction, UpdateStringAction,
+  UPDATE_STATE, UpdateIntAction, UpdateStateAction, UpdateStringAction,
 } from "./actions";
-
-enum FORM_STATE {
-  READY,
-  SUBMITTING,
-  SUBMITTED,
-}
 
 const DEFAULT_STATE = {
   name: "",
@@ -28,6 +23,8 @@ function form(state = DEFAULT_STATE, action: Action) {
       return Object.assign({}, state, { attendees: (action as UpdateIntAction).val });
     case SET_RSVP_SERVICE:
       return Object.assign({}, state, { rsvpService: (action as SetRSVPServiceAction).service });
+    case UPDATE_STATE:
+      return Object.assign({}, state, { state: (action as UpdateStateAction).state });
     default: return state;
   }
 }

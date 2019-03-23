@@ -8,6 +8,7 @@ function mapStateToProps(state: any) {
     contact: state.form.contact,
     attendees: state.form.attendees,
     rsvpService: state.form.rsvpService,
+    state: state.form.state,
   };
 }
 
