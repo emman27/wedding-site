@@ -12,6 +12,7 @@ const styles = (theme: any) => createStyles({
     backgroundColor: "rgba(255,255,255,0.9)",
     marginLeft: theme.spacing.unit,
     marginRight: theme.spacing.unit,
+    marginTop: 250,
   },
   form: {
     flexDirection: "row",

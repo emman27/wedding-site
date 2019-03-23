@@ -46,9 +46,9 @@ function separate(remainingSeconds: number) {
   };
 }
 
-const styles = () => createStyles({
+const styles = (theme: any) => createStyles({
   unit: {
-    margin: 20,
+    margin: 2 * theme.spacing.unit,
     flexDirection: "column",
     textAlign: "center",
   },
@@ -56,7 +56,6 @@ const styles = () => createStyles({
     display: "flex",
     justifyContent: "center",
     flexWrap: "wrap",
-    color: "rgba(255,255,255,0.8)",
     // flexDirection: "row",
   },
 });
@@ -67,25 +66,31 @@ const Timer = ({ remainingSeconds, classes }: TimerProps) => {
     <div>
       <div className={classes.row}>
         <span className={classes.unit}>
-          <Typography variant="h1" color="inherit">{details.months}</Typography>
-          <Typography variant="h4" color="inherit">MONTHS</Typography>
+          <Typography variant="h5">20th July 2019, 1050AM</Typography>
+          <Typography variant="h6">Kay Poh Road Baptist Church</Typography>
+        </span>
+      </div>
+      <div className={classes.row}>
+        <span className={classes.unit}>
+          <Typography variant="h2" color="inherit">{details.months}</Typography>
+          <Typography variant="h5" color="inherit">MONTHS</Typography>
         </span>
         <span className={classes.unit}>
-          <Typography variant="h1" color="inherit">{details.days}</Typography>
-          <Typography variant="h4" color="inherit">DAYS</Typography>
+          <Typography variant="h2" color="inherit">{details.days}</Typography>
+          <Typography variant="h5" color="inherit">DAYS</Typography>
         </span>
         <span className={classes.unit}>
 
-          <Typography variant="h1" color="inherit">{details.hours}</Typography>
-          <Typography variant="h4" color="inherit">HOURS</Typography>
+          <Typography variant="h2" color="inherit">{details.hours}</Typography>
+          <Typography variant="h5" color="inherit">HOURS</Typography>
         </span>
         <span className={classes.unit}>
-          <Typography variant="h1" color="inherit">{details.minutes}</Typography>
-          <Typography variant="h4" color="inherit">MINS</Typography>
+          <Typography variant="h2" color="inherit">{details.minutes}</Typography>
+          <Typography variant="h5" color="inherit">MINS</Typography>
         </span>
         <span className={classes.unit}>
-          <Typography variant="h1" color="inherit">{details.seconds}</Typography>
-          <Typography variant="h4" color="inherit">SECS</Typography>
+          <Typography variant="h2" color="inherit">{details.seconds}</Typography>
+          <Typography variant="h5" color="inherit">SECS</Typography>
         </span>
       </div>
     </div>
