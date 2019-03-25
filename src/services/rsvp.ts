@@ -1,5 +1,6 @@
 import * as firebase from "firebase/app";
 import "firebase/firestore";
+import { timeout } from "q";
 import { Store } from "redux";
 import { FORM_STATE } from "../components/Form";
 import { updateState } from "../store/form/actions";
@@ -39,6 +40,7 @@ export class RSVPServiceFirestore {
       name,
       contact,
       numberOfAttendees,
+      timestamp: new Date(),
     }).then(() => {
       this.store.dispatch(updateState(FORM_STATE.SUBMITTED));
     });

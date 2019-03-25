@@ -18,7 +18,7 @@ const styles = {
   card: {
     margin: theme.spacing.unit,
     padding: theme.spacing.unit,
-    backgroundColor: "rgba(255,255,255,0.5)",
+    backgroundColor: "rgba(255,255,255,0.6)",
     borderRadius: 20,
     maxWidth: 450,
     marginTop: 250,
