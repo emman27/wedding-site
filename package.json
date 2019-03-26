@@ -1,6 +1,6 @@
 {
   "name": "wedding-site",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^3.9.2",
