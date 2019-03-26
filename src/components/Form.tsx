@@ -2,6 +2,7 @@ import {
   Button, Card, CardContent, CircularProgress, createStyles, FormControl,
   InputLabel, MenuItem, Select, TextField, Typography, withStyles,
 } from "@material-ui/core";
+import Icon from "@material-ui/core/Icon";
 import React from "react";
 import { RSVPService } from "../services/rsvp";
 
@@ -54,9 +55,18 @@ const Form = ({ classes, name, attendees, contact,
     <Card className={classes.card}>
       <CardContent>
         {state === FORM_STATE.SUBMITTED ?
-          <Typography gutterBottom variant="h4">{thankYouMessage}</Typography> :
-
-          <><Typography gutterBottom variant="h5">RSVP</Typography>
+          (<>
+            <Typography gutterBottom variant="h4">{thankYouMessage}</Typography>
+            <Button
+              color="primary"
+              target="_blank"
+              href="https://calendar.google.com/event?action=TEMPLATE&amp;tmeid=MzRhNWRqOTcxaGd0aW1nbGI1NDZuYjIzajkgZXlnb2hsb2x6QG0&amp;tmsrc=eygohlolz%40gmail.com"
+              variant="contained">
+              <Icon>event</Icon> Google Calendar
+            </Button>
+          </>) :
+          <>
+            <Typography gutterBottom variant="h5">RSVP</Typography>
             <form autoComplete="off" className={classes.form}>
               <TextField
                 label="Your Name"
@@ -105,7 +115,8 @@ const Form = ({ classes, name, attendees, contact,
                 </Button> :
                 <CircularProgress />
               }
-            </form></>
+            </form>
+          </>
         }
       </CardContent>
     </Card >
