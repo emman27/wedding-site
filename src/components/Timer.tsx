@@ -48,7 +48,7 @@ function separate(remainingSeconds: number) {
 
 const styles = (theme: any) => createStyles({
   unit: {
-    margin: 2 * theme.spacing.unit,
+    margin: theme.spacing.unit,
     flexDirection: "column",
     textAlign: "center",
   },
@@ -72,15 +72,10 @@ const Timer = ({ remainingSeconds, classes }: TimerProps) => {
       </div>
       <div className={classes.row}>
         <span className={classes.unit}>
-          <Typography variant="h2" color="inherit">{details.months}</Typography>
-          <Typography variant="h5" color="inherit">MONTHS</Typography>
-        </span>
-        <span className={classes.unit}>
           <Typography variant="h2" color="inherit">{details.days}</Typography>
           <Typography variant="h5" color="inherit">DAYS</Typography>
         </span>
         <span className={classes.unit}>
-
           <Typography variant="h2" color="inherit">{details.hours}</Typography>
           <Typography variant="h5" color="inherit">HOURS</Typography>
         </span>

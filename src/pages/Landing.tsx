@@ -32,9 +32,9 @@ const page = ({ classes }: any) => (
   <div style={{ display: "flex", flexDirection: "row", justifyContent: "center" }}>
     <Card className={classes.card}>
       <Timer />
-      <LinkButton color="primary" variant="contained" size="large" component={Link as any} to="/rsvp">
-        <Typography variant="h5">RSVP <i className="fas fa-futbol" /></Typography>
-      </LinkButton>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.797215780363!2d103.8271731505972!3d1.2962997621055108!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da1985b163fdc9%3A0x2a95600c683103a6!2s7+Kay+Poh+Rd%2C+Singapore+248963!5e0!3m2!1sen!2ssg!4v1562688610560!5m2!1sen!2ssg" width={300} height={225} style={{ border: 0 }}></iframe>
+      <Typography variant="h6">Shuttle Bus available from Great World City Office Lobby Driveway from 9-11am.</Typography>
+      <Typography variant="h6">There will be no parking space in the church</Typography>
       <div className={classes.buttons}>
         <Button
           color="primary"
